@@ -1,0 +1,5 @@
+[options]
+db_host = localhost
+db_user = patrik
+db_password = patrik123
+dbfilter = odoo16
