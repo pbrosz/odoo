@@ -17,12 +17,16 @@
     </record>
 
     <record id="estate_property_view_form" model="ir.ui.view">
-        <field name="name">"testing"</field>
+        <field name="name">estate.property.model.form</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <form string="Test">
+            <form string="estate_property_form">
                 <sheet>
-                    <field name="name"/>
+                    <div class="mb-4">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
                     <group>
                         <group>
                             <field name="postcode"/>
