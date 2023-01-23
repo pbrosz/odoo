@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from dateutil.utils import today
 
 from odoo import fields, models, api
+from odoo.exceptions import UserError
 
 
 class EstatePropertyOffer(models.Model):
@@ -19,18 +20,33 @@ class EstatePropertyOffer(models.Model):
     @api.depends("validity")
     def _compute_deadline(self):
         for record in self:
-            if record.create_date is None:
-                create_date = fields.Date().today()
-            else:
-                create_date = fields.Date().to_date(record.create_date)
+            date_created = fields.Date().today()
 
-            record.date_deadline = create_date + timedelta(days=record.validity)
+            if record.create_date:
+                date_created = fields.Date().to_date(record.create_date)
+
+            record.date_deadline = date_created + timedelta(days=record.validity)
 
     def _inverse_deadline(self):
         for record in self:
-            if record.create_date is None:
-                create_date = fields.Date().today()
-            else:
-                create_date = fields.Date().to_date(record.create_date)
+            date_created = fields.Date().today()
 
-            record.validity = (record.date_deadline - create_date).days
+            if record.create_date:
+                date_created = fields.Date().to_date(record.create_date)
+
+            record.validity = (record.date_deadline - date_created).days
+
+    def action_accept(self):
+        for record in self:
+            if any(status == "accepted" for status in record.property_id.offer_ids.mapped("status")):
+                raise UserError("Only one offer can be accepted.")
+
+            record.status = "accepted"
+            record.property_id.selling_price = record.price
+            record.property_id.buyer_id = record.partner_id
+        return True
+
+    def action_refuse(self):
+        for record in self:
+            record.status = "refused"
+        return True
