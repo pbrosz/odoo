@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <tree string="Channel">
                 <field name="name" string="Title"/>
+                <field name="property_type_id" string="Property Type"/>
                 <field name="postcode"/>
                 <field name="bedrooms"/>
                 <field name="living_area" string="Living Area (sqm)"/>
@@ -31,6 +32,7 @@
                         <group>
                             <field name="postcode"/>
                             <field name="date_availability" string="Available From"/>
+                            <field name="property_type_id" string="Property Type"/>
                         </group>
                         <group>
                             <field name="expected_price"/>
