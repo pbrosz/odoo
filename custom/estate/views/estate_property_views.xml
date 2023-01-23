@@ -71,6 +71,7 @@
                         domain="['|',
                             ('state', '=', 'new'),
                             ('state', '=', 'offerReceived')]"/>
+                <filter name="postcode" context="{'group_by':'postcode'}"/>
             </search>
         </field>
     </record>
