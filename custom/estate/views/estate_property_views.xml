@@ -98,7 +98,7 @@
                 <filter string="Available" name="available"
                         domain="['|',
                             ('state', '=', 'new'),
-                            ('state', '=', 'offerReceived')]"/>
+                            ('state', '=', 'offer_received')]"/>
                 <filter name="postcode" context="{'group_by':'postcode'}"/>
             </search>
         </field>
