@@ -27,8 +27,8 @@
         <field name="arch" type="xml">
             <form string="estate_property_form">
                 <header>
-                    <button name="action_set_sold_property" type="object" string="Sold" states='new,offer_received,offer_accepted'/>
-                    <button name="action_cancel_property" type="object" string="Cancel" states='new,offer_received,offer_accepted'/>
+                    <button name="action_set_sold_property" type="object" string="Sold" states='offer_accepted'/>
+                    <button name="action_cancel_property" type="object" string="Cancel" states='new,offer_received'/>
                     <field name="state" widget="statusbar"
                            statusbar_visible="new, offer_received, offer_accepted, sold, canceled"/>
                 </header>
