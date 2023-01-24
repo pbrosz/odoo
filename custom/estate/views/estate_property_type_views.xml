@@ -12,6 +12,17 @@
                         </h1>
                         <hr class="solid"/>
                     </div>
+                    <notebook>
+                            <page string="Properties">
+                                <field name="property_ids">
+                                    <tree string="Properties">
+                                        <field name="name" string="Title"/>
+                                        <field name="expected_price"/>
+                                        <field name="state" string="Status"/>
+                                    </tree>
+                                </field>
+                            </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
