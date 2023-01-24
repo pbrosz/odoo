@@ -58,13 +58,13 @@
                                     <field name="facades"/>
                                     <field name="garage"/>
                                     <field name="garden"/>
-                                    <field name="garden_area"/>
-                                    <field name="garden_orientation"/>
+                                    <field name="garden_area" attrs="{'invisible': [('garden', '=', False)]}"/>
+                                    <field name="garden_orientation" attrs="{'invisible': [('garden', '=', False)]}"/>
                                     <field name="total_area" string="Total Area (sqm)"/>
                                 </group>
                             </page>
                             <page string="Offers">
-                                <field name="offer_ids"/>
+                                <field name="offer_ids" attrs="{'readonly': [('state','in', ('offer_accepted', 'sold', 'canceled'))]}"/>
                             </page>
                             <page string="Other Info">
                                 <group>
