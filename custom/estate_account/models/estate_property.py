@@ -12,12 +12,14 @@ class EstateProperty(models.Model):
                 Command.create({
                     "name": self.name,
                     "quantity": 1,
-                    "price_unit": self.best_price * 0.06
+                    "price_unit": self.best_price * 0.06,
+                    "tax_ids": []
                 }),
                 Command.create({
                     "name": "Administrative fees",
                     "quantity": 1,
-                    "price_unit": 100
+                    "price_unit": 100,
+                    "tax_ids": []
                 })
             ]
         })
