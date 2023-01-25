@@ -78,7 +78,7 @@ class EstateProperty(models.Model):
             self.garden_area = 0
             self.garden_orientation = ""
 
-    def action_set_sold_property(self):
+    def action_sell_property(self):
         for record in self:
             if record.state != "canceled":
                 record.state = "sold"

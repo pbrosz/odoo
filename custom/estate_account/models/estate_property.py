@@ -4,7 +4,7 @@ from odoo import fields, models, Command
 class EstateProperty(models.Model):
     _inherit = 'estate.property'
 
-    def action_set_sold_property(self):
+    def action_sell_property(self):
         self.env['account.move'].create({
             'move_type': 'out_invoice',
             "partner_id": self.buyer_id.id,
@@ -24,5 +24,5 @@ class EstateProperty(models.Model):
             ]
         })
 
-        return super().action_set_sold_property()
+        return super().action_sell_property()
 
