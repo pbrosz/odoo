@@ -30,7 +30,7 @@
                     <button name="action_sell_property" type="object" string="Sold" states='offer_accepted'/>
                     <button name="action_cancel_property" type="object" string="Cancel" states='new,offer_received'/>
                     <field name="state" widget="statusbar"
-                           statusbar_visible="new, offer_received, offer_accepted, sold, canceled"/>
+                           statusbar_visible="new,offer_received,offer_accepted,sold,canceled"/>
                 </header>
                 <sheet>
                     <div>
